@@ -1,0 +1,22 @@
+# The Docker Compose file configures a Prometheus container to collect metrics from a Spring Boot application using the prometheus.yml file.
+# It also sets up a Grafana container that uses the datasources.yml file to define Prometheus as the default data source for analyzing the collected metrics.
+
+version: '3.7'
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.44.0
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:9.5.2
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    volumes:
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
