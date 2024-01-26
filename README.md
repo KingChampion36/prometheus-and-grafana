@@ -22,7 +22,7 @@ Actuator endpoint is accessible at http://localhost:8080/actuator
 
 ## Access `prometheus` endpoint
 
-Actuator endpoint is accessible at http://localhost:8080/actuator/prometheus
+Prometheus endpoint is accessible at http://localhost:8080/actuator/prometheus
 
 ## Start Prometheus and Grafana Containers
 
